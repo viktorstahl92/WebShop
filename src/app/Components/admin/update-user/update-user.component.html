@@ -1,0 +1,52 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <h3>Uppdatera användare</h3>
+        <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="firstName">Förnamn:</label>
+                <input type="text" class="form-control" name="firstName" [(ngModel)]="form.firstName" required
+                    #firstName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Efternamn:</label>
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="form.lastName" required
+                    #lastName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="address">Adress:</label>
+                <input type="text" class="form-control" name="address" [(ngModel)]="form.address" required
+                    #lastName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="city">Stad:</label>
+                <input type="text" class="form-control" name="city" [(ngModel)]="form.city" required
+                    #lastName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Postnummer:</label>
+                <input type="text" class="form-control" name="postalCode" [(ngModel)]="form.postalCode" required
+                    #lastName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+                    #email="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="role">Roll:</label>
+                <input type="text" class="form-control" name="role" [(ngModel)]="form.role" required
+                #role="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Uppdatera användare</button>
+            </div>
+            <div class="form-group">
+                <button [routerLink]="['/main']" class="btn btn-secondary btn-block">Gå tillbaka</button>
+            </div>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Registrering misslyckades!<br />{{ errorMessage }}
+            </div>
+        </form>
+    </div>
+</div>
