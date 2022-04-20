@@ -5,6 +5,8 @@ import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/services/product.service';
 import { ProductInfo } from 'src/app/models/product-info';
+import { OrderService } from 'src/services/order.service';
+import { OrderInfo } from 'src/app/models/order-info';
 
 
 @Component({
@@ -15,14 +17,16 @@ import { ProductInfo } from 'src/app/models/product-info';
 export class MainComponent implements OnInit {
 
   constructor(private tokenStorage: TokenStorageService, private userService: UserService, private route: Router
-    ,private productService: ProductService) { }
+    ,private productService: ProductService, private orderService: OrderService) { }
 
   user?: UserInfo;
   isAdmin = false;
   showUsers = false;
   showProducts = false;
+  showOrders = false;
   users?: UserInfo[];
   products?: ProductInfo[];
+  orders?: OrderInfo[];
 
 
   ngOnInit(): void {
@@ -63,6 +67,15 @@ export class MainComponent implements OnInit {
         this.productService.getAllProducts().subscribe((response: ProductInfo[]) =>{
           this.products = response;
         })
+    }
+  }
+
+  toggleAllOrders(){
+    this.showOrders = !this.showOrders;
+    if (!this.orders) {
+      this.orderService.getAllOrders().subscribe((response: OrderInfo[]) =>{
+        this.orders = response;
+      })
     }
   }
 

@@ -1,5 +1,5 @@
 <div class="ml-5" *ngIf="User">
-    <p>{{User.firstName}} {{User.lastName}} - {{User.email}} - {{User.role}}<br>{{User.address}}, {{User.postalCode}} {{User.city}}</p>
+    <p><b>{{User.firstName}} {{User.lastName}}</b> - {{User.email}} - {{User.role}}<br>{{User.address}}, {{User.postalCode}} {{User.city}}</p>
     <button class="btn-primary" [routerLink]="['/admin/updateuser', User.userId]">Redigera</button>
     <button class="btn-danger" (click)="deleteMe()">Ta bort</button>
 
