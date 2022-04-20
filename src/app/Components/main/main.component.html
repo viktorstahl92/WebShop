@@ -10,7 +10,7 @@
 <hr>
 <div *ngIf="isAdmin">
     <div>
-        <button class="btn-primary" [routerLink]="['/addproduct']">Lägg till ny produkt</button>
+        <button class="btn-primary" [routerLink]="['/admin/addproduct']">Lägg till ny produkt</button>
     </div>
 
     <div class="mt-3">
@@ -18,7 +18,8 @@
         <button class="btn-secondary" (click)="toggleAllProducts()">Se alla produkter</button>
     </div>
     <div *ngIf="showUsers">
-        <app-user-basic *ngFor="let theUser of users" [User]="theUser" (deleteEmitter)="deleteUser($event)"></app-user-basic>
+        <app-user-basic *ngFor="let theUser of users" [User]="theUser" (deleteEmitter)="deleteUser($event)">
+        </app-user-basic>
     </div>
 
     <div *ngIf="showProducts">
@@ -29,6 +30,7 @@
                     <th>Produktnamn</th>
                     <th>Pris</th>
                     <th>Kategori</th>
+                    <th>Redigera</th>
                     <th>Ta bort</th>
                 </tr>
             </thead>
@@ -38,6 +40,7 @@
                     <td>{{item.productName}}</td>
                     <td>{{item.productPrice}}</td>
                     <td>{{item.category}}</td>
+                    <td><button class="btn-info" [routerLink]="['/admin/updateproduct/' + item.productID]">Redigera</button></td>
                     <td><button class="btn-danger" (click)="deleteProduct(item.productID)">Ta bort</button></td>
             </tbody>
         </table>

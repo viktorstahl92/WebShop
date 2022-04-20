@@ -19,8 +19,22 @@ export class ProductService {
     return this.http.get<ProductInfo[]>(API_Auth + API_KEY)
   }
 
+  getProduct(id:number):Observable<ProductInfo>{
+    return this.http.get<ProductInfo>(API_Auth + id + API_KEY)
+  }
+
   postProduct(productName:string, productNumber:number, productDescription: string, productPrice: number, category:string) : Observable<any>{
     return this.http.post(API_Auth + API_KEY ,{
+      productName,
+      productNumber,
+      productDescription,
+      productPrice,
+      category
+    }, {responseType: 'json'});
+  }
+
+ updateProduct(id:number,productName:string, productNumber:number, productDescription: string, productPrice: number, category:string) : Observable<any>{
+    return this.http.put(API_Auth + id + API_KEY ,{
       productName,
       productNumber,
       productDescription,

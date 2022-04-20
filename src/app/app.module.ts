@@ -11,6 +11,7 @@ import { MainComponent } from './Components/main/main.component';
 import { UserBasicComponent } from './Components/admin/user-basic/user-basic.component';
 import { AddProductComponent } from './Components/admin/add-product/add-product.component';
 import { UpdateUserComponent } from './Components/admin/update-user/update-user.component';
+import { ChangeProductComponent } from './Components/admin/change-product/change-product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UpdateUserComponent } from './Components/admin/update-user/update-user.
     UserBasicComponent,
     AddProductComponent,
     UpdateUserComponent,
+    ChangeProductComponent,
   ],
   imports: [
     BrowserModule,
