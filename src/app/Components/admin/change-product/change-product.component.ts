@@ -56,6 +56,9 @@ export class ChangeProductComponent implements OnInit {
         this.form.productPrice = product.productPrice
         this.form.category = product.category
       };
+    },
+    err =>{
+      this.route.navigate(['/', 'main']);
     });
   }
 

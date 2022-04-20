@@ -59,7 +59,7 @@ export class MainComponent implements OnInit {
 
   toggleAllProducts(){
     this.showProducts = !this.showProducts;
-    if (!this.users) {
+    if (!this.products) {
         this.productService.getAllProducts().subscribe((response: ProductInfo[]) =>{
           this.products = response;
         })
@@ -69,7 +69,6 @@ export class MainComponent implements OnInit {
   deleteUser(id:number){
     console.log(id);
     this.userService.deleteUser(id).subscribe((response: any) =>{
-      console.log("Am i deleted?")
       this.userService.getAllUsers().subscribe((response: UserInfo[]) =>{
         this.users = response;
       })
