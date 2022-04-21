@@ -3,72 +3,9 @@
     <div>
         <p>Email: {{user.email}}</p>
         <p>Adress: {{user.address}}, {{user.postalCode}} {{user.city}}</p>
-        <p>Du är {{user.role == "Admin" ? "administratör" : "kund"}}.
+        <p>Du är {{user.role == "Admin" ? "administratör" : "kund"}}.</p>
     </div>
     <button class="btn-danger" (click)="logOut()">Logga ut</button>
 </div>
 <hr>
-<div *ngIf="isAdmin">
-    <div>
-        <button class="btn-primary" [routerLink]="['/admin/addproduct']">Lägg till ny produkt</button>
-    </div>
-
-    <div class="mt-3">
-        <button class="btn-secondary" (click)="toggleAllUsers()">Se alla användare</button>
-        <button class="btn-success" (click)="toggleAllProducts()">Se alla produkter</button>
-        <button class="btn-info" (click)="toggleAllOrders()">Se alla ordrar</button>
-
-    </div>
-    <div *ngIf="showUsers">
-        <app-user-basic *ngFor="let theUser of users" [User]="theUser" (deleteEmitter)="deleteUser($event)">
-        </app-user-basic>
-    </div>
-
-    <div *ngIf="showProducts">
-        <table>
-            <thead>
-                <tr>
-                    <th>Artikelnummer</th>
-                    <th>Produktnamn</th>
-                    <th>Pris</th>
-                    <th>Kategori</th>
-                    <th>Redigera</th>
-                    <th>Ta bort</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of products">
-                    <td>{{item.productNumber}}</td>
-                    <td>{{item.productName}}</td>
-                    <td>{{item.productPrice}}</td>
-                    <td>{{item.category}}</td>
-                    <td><button class="btn-info" [routerLink]="['/admin/updateproduct/' + item.productID]">Redigera</button></td>
-                    <td><button class="btn-danger" (click)="deleteProduct(item.productID)">Ta bort</button></td>
-            </tbody>
-        </table>
-    </div>
-
-    <div *ngIf="showOrders">
-        <table>
-            <thead>
-                <tr>
-                    <th>Order-ID</th>
-                    <th>Kund</th>
-                    <th>Status</th>
-                    <th>Summa</th>
-                    <th>Redigera</th>
-                    <th>Ta bort</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of orders">
-                    <td>{{item.orderId}}</td>
-                    <td>{{item.customerName}}</td>
-                    <td>{{item.orderStatus}}</td>
-                    <td>{{item.totalPrice}}</td>
-                    <td><button class="btn-info">Redigera</button></td>
-                    <td><button class="btn-danger">Ta bort</button></td>
-            </tbody>
-        </table>
-    </div>
-</div>
+<app-admin-main *ngIf="isAdmin"></app-admin-main>

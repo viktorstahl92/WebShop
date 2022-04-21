@@ -21,12 +21,7 @@ export class MainComponent implements OnInit {
 
   user?: UserInfo;
   isAdmin = false;
-  showUsers = false;
-  showProducts = false;
-  showOrders = false;
-  users?: UserInfo[];
-  products?: ProductInfo[];
-  orders?: OrderInfo[];
+  
 
 
   ngOnInit(): void {
@@ -50,51 +45,6 @@ export class MainComponent implements OnInit {
   logOut(){
     this.tokenStorage.signOut();
     this.route.navigate(['/', 'overview']);
-  }
-
-  toggleAllUsers() {
-    this.showUsers = !this.showUsers;
-    if (!this.users) {
-        this.userService.getAllUsers().subscribe((response: UserInfo[]) =>{
-          this.users = response;
-        })
-    }
-  }
-
-  toggleAllProducts(){
-    this.showProducts = !this.showProducts;
-    if (!this.products) {
-        this.productService.getAllProducts().subscribe((response: ProductInfo[]) =>{
-          this.products = response;
-        })
-    }
-  }
-
-  toggleAllOrders(){
-    this.showOrders = !this.showOrders;
-    if (!this.orders) {
-      this.orderService.getAllOrders().subscribe((response: OrderInfo[]) =>{
-        this.orders = response;
-      })
-    }
-  }
-
-  deleteUser(id:number){
-    console.log(id);
-    this.userService.deleteUser(id).subscribe((response: any) =>{
-      this.userService.getAllUsers().subscribe((response: UserInfo[]) =>{
-        this.users = response;
-      })
-    });
-  }
-
-  deleteProduct(id:number){
-    console.log(id);
-    this.productService.deleteProduct(id).subscribe((response: any) =>{
-      this.productService.getAllProducts().subscribe((response: ProductInfo[]) =>{
-        this.products = response;
-      })
-    });
   }
 
 }
