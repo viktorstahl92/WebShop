@@ -61,6 +61,15 @@ export class AdminMainComponent implements OnInit {
     });
   }
 
+  deleteOrder(id:number){
+    this.orderService.deleteOrder(id).subscribe((response: any) =>{
+      this.orderService.getAllOrders().subscribe((response: OrderInfo[]) =>{
+        this.orders = response;
+      })
+    });
+  }
+  
+
   deleteProduct(id:number){
     console.log(id);
     this.productService.deleteProduct(id).subscribe((response: any) =>{

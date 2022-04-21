@@ -5,6 +5,7 @@ import { ChangeProductComponent } from './Components/admin/change-product/change
 import { UpdateUserComponent } from './Components/admin/update-user/update-user.component';
 import { LoginComponent } from './Components/log-in/log-in.component';
 import { MainComponent } from './Components/main/main.component';
+import { OrderInfoComponent } from './Components/order-info/order-info.component';
 import { RegisterComponent } from './Components/register/register.component';
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'overview', redirectTo: '', pathMatch: 'full' },
   { path: 'admin/addproduct', component: AddProductComponent },
   { path: 'admin/updateuser/:id', component: UpdateUserComponent},
-  { path: 'admin/updateproduct/:id', component: ChangeProductComponent}
+  { path: 'admin/updateproduct/:id', component: ChangeProductComponent},
+  { path: 'order/:id', component: OrderInfoComponent}
+
 
 
 ];

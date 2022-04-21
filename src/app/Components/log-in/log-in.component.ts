@@ -24,22 +24,16 @@ export class LoginComponent implements OnInit {
     this.checkToken();
   }
   onSubmit(): void {
-    // console.log('Hej');
     const { username, password } = this.form;
     this.authService.login(username, password).subscribe(data => {
-      console.log(data)
       this.tokenStorage.saveToken(data);
       this.isLoggedIn = true;
       this.checkToken();
     },
       err => {
-        console.log(err.error)
         this.errorMessage = err.error;
       });
 
-  }
-  reloadPage(): void {
-    window.location.reload();
   }
 
   checkToken() {

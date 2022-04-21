@@ -1,0 +1,7 @@
+<div *ngIf="product" class="border mr-5">
+    <h6>{{product.productName}} </h6>
+    <p>({{product.productNumber}})</p>
+    <p><i>{{product.productDescription}}</i></p>
+    <p>{{product.productPrice}} kr </p>
+    <button class="btn-secondary" (click)="addToCart()">Lägg till</button>
+</div>

@@ -1,0 +1,31 @@
+<div *ngIf="order">
+    <h2>Orderbekräftelse</h2>
+    <div>
+        <p>Beställare: {{order.customerName}}<br>
+            Adress: {{order.address}}</p>
+        <p>
+            Beställningsdatum: {{order.orderDate | date:'yyyy-MM-dd'}} <br>
+            Förfallodatum: <b> {{order.dueDate | date:'yyyy-MM-dd' }}</b>
+        </p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Art. nummer</th>
+                <th>Produkt</th>
+                <th>Totalt pris</th>
+                <th>Antal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of order.orderRows">
+                <td>{{item.productNumber}}</td>
+                <td>{{item.productName}}</td>
+                <td>{{item.productPrice * item.quantity}}</td>
+                <td>{{item.quantity}}</td>
+        </tbody>
+    </table>
+    <h6>Summa: <b> {{order.totalPrice}}</b></h6>
+    <button class="btn-secondary" [routerLink]="['/main']">Gå tillbaka</button>
+</div>
