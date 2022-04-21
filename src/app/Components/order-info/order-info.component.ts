@@ -10,10 +10,11 @@ import { OrderService } from 'src/services/order.service';
 })
 export class OrderInfoComponent implements OnInit {
 
-  order? : OrderInfo
+  order?: OrderInfo
   id?: number
+  errorMessage?: string
 
-  constructor(private orderService : OrderService, private actRoute: ActivatedRoute) { }
+  constructor(private orderService: OrderService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(params => {
@@ -23,12 +24,25 @@ export class OrderInfoComponent implements OnInit {
     })
   }
 
-  getOrder(id: number){
+  getOrder(id: number) {
     this.orderService.getOrder(id).subscribe((res) => {
       if (res) {
         this.order = res;
-      };
-    });
-  }
+      };    
+  },
+  err =>{
+    this.errorMessage = err.error;
+  })
+}
 
+// this.authService.login(username, password).subscribe(data => {
+//   this.tokenStorage.saveToken(data);
+//   this.isLoggedIn = true;
+//   this.checkToken();
+// },
+//   err => {
+//     this.errorMessage = err.error;
+//   });
+
+// }
 }

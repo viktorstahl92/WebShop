@@ -1,6 +1,9 @@
 <div class="col-md-12">
     <div class="card card-container">
         <h3>Ändra produkt</h3>
+        <div class="alert alert-warning" *ngIf="errorMessage">
+            Uppdatering misslyckades!<br />{{ errorMessage }}
+        </div>
         <form *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="productName">Produktnamn:</label>
@@ -33,12 +36,6 @@
             <div class="form-group">
                 <button [routerLink]="['/main']" class="btn btn-secondary btn-block">Gå tillbaka</button>
             </div>
-            <div class="alert alert-warning" *ngIf="f.submitted && isAddFailed">
-                Registrering misslyckades!<br />{{ errorMessage }}
-            </div>
         </form>
-        <div class="alert alert-success" *ngIf="isSuccessful">
-            Ny användare skapad!
-        </div>
     </div>
 </div>

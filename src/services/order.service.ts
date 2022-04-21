@@ -20,6 +20,10 @@ export class OrderService {
   getOrder(id:number):Observable<OrderInfo>{
     return this.http.get<OrderInfo>(API_Auth + id + API_KEY)
   }
+
+  getLoggedInOrders():Observable<OrderInfo[]>{
+    return this.http.get<OrderInfo[]>(API_Auth + 'LoggedInOrders' + API_KEY)
+  }
   
   postOrder(cartItems : OrderRow[]):Observable<OrderInfo>{
     console.log("postorder")

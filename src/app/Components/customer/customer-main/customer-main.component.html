@@ -1,30 +1,55 @@
+<div *ngIf="orders">
+    <h4>Beställningshistorik:</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Order-ID</th>
+                <th>Beställningsdatum</th>
+                <th>Status</th>
+                <th>Summa</th>
+                <th>Visa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orders">
+                <td>{{item.orderId}}</td>
+                <td>{{item.orderDate | date:'yyyy-MM-dd'}}</td>
+                <td>{{item.orderStatus}}</td>
+                <td>{{item.totalPrice}}</td>
+                <td><button class="btn-primary" [routerLink]="['/order/' + item.orderId]">Visa</button>
+        </tbody>
+    </table>
+    <hr>
+</div>
+
 <h2>Beställ:</h2>
 <div class="d-flex col-4 m-3">
-    <app-product-customer *ngFor="let product of products" [product]="product" (AddToCartEmitter)="addToCart($event)"></app-product-customer>
+    <app-product-customer *ngFor="let product of products" [product]="product" (AddToCartEmitter)="addToCart($event)">
+    </app-product-customer>
 </div>
 
 <div *ngIf="cart">
     <hr>
-I din varukorg:
-<table>
-    <thead>
-        <tr>
-            <th>Art. no:</th>
-            <th>Produkt:</th>
-            <th>Summa:</th>
-            <th>Antal</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of cart">
-            <td>{{item.productNumber}}</td>
-            <td>{{item.productName}}</td>
-            <td>{{item.productPrice * item.quantity}} kr</td>
-            <td>{{item.quantity}}</td>
-            <td><button class="btn-success" (click)="addQuantity(item.productNumber)">+</button></td>
-            <td><button class="btn-danger" (click)="removeQuantity(item.productNumber)">-</button></td>
-    </tbody>
-</table>
-<p>Summa: {{total()}} kr </p>
-<button class="btn-primary btn" (click)="confirmOrder()">Lägg beställning</button>
+    I din varukorg:
+    <table>
+        <thead>
+            <tr>
+                <th>Art. no:</th>
+                <th>Produkt:</th>
+                <th>Summa:</th>
+                <th>Antal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart">
+                <td>{{item.productNumber}}</td>
+                <td>{{item.productName}}</td>
+                <td>{{item.productPrice * item.quantity}} kr</td>
+                <td>{{item.quantity}}</td>
+                <td><button class="btn-success" (click)="addQuantity(item.productNumber)">+</button></td>
+                <td><button class="btn-danger" (click)="removeQuantity(item.productNumber)">-</button></td>
+        </tbody>
+    </table>
+    <p>Summa: {{total()}} kr </p>
+    <button class="btn-primary btn" (click)="confirmOrder()">Lägg beställning</button>
 </div>
