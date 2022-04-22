@@ -31,7 +31,6 @@ export class OrderService {
   }
 
   putOrder(orderInfo : OrderInfo):Observable<OrderInfo>{
-    console.log("putOrder")
     return this.http.put<OrderInfo>(API_Auth + orderInfo.orderId + API_KEY,
         orderInfo);
   }
