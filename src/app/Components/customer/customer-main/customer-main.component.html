@@ -15,7 +15,7 @@
                 <td>{{item.orderId}}</td>
                 <td>{{item.orderDate | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.orderStatus}}</td>
-                <td>{{item.totalPrice}}</td>
+                <td>{{item.totalPrice  | number: '1.2-2'}} kr</td>
                 <td><button class="btn-primary" [routerLink]="['/order/' + item.orderId]">Visa</button>
         </tbody>
     </table>
@@ -50,6 +50,6 @@
                 <td><button class="btn-danger" (click)="removeQuantity(item.productNumber)">-</button></td>
         </tbody>
     </table>
-    <p>Summa: {{total()}} kr </p>
+    <p>Summa: {{total() | number: '1.2-2'}} kr </p>
     <button class="btn-primary btn" (click)="confirmOrder()">Lägg beställning</button>
 </div>

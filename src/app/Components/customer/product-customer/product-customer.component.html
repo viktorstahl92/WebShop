@@ -2,6 +2,6 @@
     <h6>{{product.productName}} </h6>
     <p>({{product.productNumber}})</p>
     <p><i>{{product.productDescription}}</i></p>
-    <p>{{product.productPrice}} kr </p>
+    <p>{{product.productPrice  | number: '1.0-2'}} kr </p>
     <button class="btn-secondary" type="button" (click)="addToCart()">Lägg till</button>
 </div>

@@ -28,21 +28,10 @@ export class OrderInfoComponent implements OnInit {
     this.orderService.getOrder(id).subscribe((res) => {
       if (res) {
         this.order = res;
-      };    
-  },
-  err =>{
-    this.errorMessage = err.error;
-  })
-}
-
-// this.authService.login(username, password).subscribe(data => {
-//   this.tokenStorage.saveToken(data);
-//   this.isLoggedIn = true;
-//   this.checkToken();
-// },
-//   err => {
-//     this.errorMessage = err.error;
-//   });
-
-// }
+      };
+    },
+      err => {
+        this.errorMessage = err.error;
+      })
+  }
 }

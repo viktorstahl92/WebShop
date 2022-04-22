@@ -7,6 +7,9 @@
             Beställningsdatum: {{order.orderDate | date:'yyyy-MM-dd'}} <br>
             Förfallodatum: <b> {{order.dueDate | date:'yyyy-MM-dd' }}</b>
         </p>
+        <p>
+            Orderstatus: {{order.orderStatus}}
+        </p>
     </div>
 
     <table>
@@ -22,11 +25,11 @@
             <tr *ngFor="let item of order.orderRows">
                 <td>{{item.productNumber}}</td>
                 <td>{{item.productName}}</td>
-                <td>{{item.productPrice * item.quantity}}</td>
+                <td>{{item.productPrice * item.quantity | number: '1.2-2'}} kr</td>
                 <td>{{item.quantity}}</td>
         </tbody>
     </table>
-    <h6>Summa: <b> {{order.totalPrice}}</b></h6>
+    <h6>Summa: <b> {{order.totalPrice | number: '1.2-2'}} kr</b></h6>
 </div>
 
 <div *ngIf="errorMessage">
