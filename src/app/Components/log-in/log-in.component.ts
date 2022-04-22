@@ -11,8 +11,8 @@ import { UserService } from 'src/services/user.service';
 })
 export class LoginComponent implements OnInit {
   form: any = {
-    username: null,
-    password: null
+    username: "",
+    password: ""
   };
   isLoggedIn = false;
   isLoginFailed = false;
