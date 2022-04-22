@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderInfo, OrderRow } from 'src/app/models/order-info';
 import { ProductInfo } from 'src/app/models/product-info';
 import { OrderService } from 'src/services/order.service';
@@ -11,11 +12,11 @@ import { ProductService } from 'src/services/product.service';
 })
 export class CustomerMainComponent implements OnInit {
 
-  constructor(private productService: ProductService, private orderService: OrderService) { }
+  constructor(private productService: ProductService, private orderService: OrderService, private router: Router) { }
 
   products?: ProductInfo[];
   orders?: OrderInfo[]
-  cart?: OrderRow[];
+  cart?: OrderRow[] = [];
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((response: ProductInfo[]) => {
@@ -51,7 +52,8 @@ export class CustomerMainComponent implements OnInit {
   confirmOrder() {
     if (!this.cart || this.total() == 0) return
     this.orderService.postOrder(this.cart).subscribe(data => {
-      console.log(data)
+      this.router.navigate(['/order', data.orderId ]);
+      
     });
   }
 
