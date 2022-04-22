@@ -79,6 +79,10 @@ export class CustomerMainComponent implements OnInit {
     item.quantity++
 
   }
+
+  emptyCart(){
+    this.cart = [];
+  }
 }
 
 
