@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/models/user-info';
 import { AuthService } from 'src/services/auth.service';
 import { TokenStorageService } from 'src/services/token-storage.service';
-import { UserService } from 'src/services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './log-in.component.html',
