@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { UserInfo } from 'src/app/models/user-info';
 
 const API_KEY = '?key=ThisIsAnAPIKey'
-const API_Auth = 'https://localhost:7129/api/Users/'
+const API_Auth = 'https://inlamningsuppgift20220422132349.azurewebsites.net/api/Users/'
 
 @Injectable({
   providedIn: 'root'

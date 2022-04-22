@@ -19,13 +19,10 @@ const routes: Routes = [
   { path: 'admin/updateproduct/:id', component: ChangeProductComponent},
   { path: 'order/:id', component: OrderInfoComponent},
   { path: 'admin/updateorder/:id', component: UpdateOrderComponent}
-
-
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

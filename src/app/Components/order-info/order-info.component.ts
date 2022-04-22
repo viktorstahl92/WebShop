@@ -32,6 +32,7 @@ export class OrderInfoComponent implements OnInit {
     },
       err => {
         this.errorMessage = err.error;
+        this.order = undefined
       })
   }
 }
