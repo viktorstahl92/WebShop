@@ -26,10 +26,14 @@ export class OrderService {
   }
   
   postOrder(cartItems : OrderRow[]):Observable<OrderInfo>{
-    console.log("postorder")
-    console.log(cartItems)
     return this.http.post<OrderInfo>(API_Auth + API_KEY,
         cartItems);
+  }
+
+  putOrder(orderInfo : OrderInfo):Observable<OrderInfo>{
+    console.log("putOrder")
+    return this.http.put<OrderInfo>(API_Auth + orderInfo.orderId + API_KEY,
+        orderInfo);
   }
 
   deleteOrder(id:number):Observable<any>{

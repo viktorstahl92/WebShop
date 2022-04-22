@@ -16,6 +16,7 @@ import { AdminMainComponent } from './Components/admin/admin-main/admin-main.com
 import { CustomerMainComponent } from './Components/customer/customer-main/customer-main.component';
 import { ProductCustomerComponent } from './Components/customer/product-customer/product-customer.component';
 import { OrderInfoComponent } from './Components/order-info/order-info.component';
+import { UpdateOrderComponent } from './Components/admin/update-order/update-order.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { OrderInfoComponent } from './Components/order-info/order-info.component
     CustomerMainComponent,
     ProductCustomerComponent,
     OrderInfoComponent,
+    UpdateOrderComponent,
   ],
   imports: [
     BrowserModule,

@@ -57,7 +57,7 @@
                 <td>{{item.orderStatus}}</td>
                 <td>{{item.totalPrice}}</td>
                 <td><button class="btn-primary" [routerLink]="['/order/' + item.orderId]">Visa</button>
-                <td><button class="btn-info">Redigera</button></td>
+                <td><button class="btn-info" [routerLink]="['/admin/updateorder/' + item.orderId]">Redigera</button></td>
                 <td><button class="btn-danger" (click)="deleteOrder(item.orderId)">Ta bort</button></td>
         </tbody>
     </table>

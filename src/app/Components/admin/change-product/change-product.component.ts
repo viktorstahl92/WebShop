@@ -16,8 +16,6 @@ export class ChangeProductComponent implements OnInit {
     category: null,
   };
 
-  isAddFailed = false;
-  isSuccessful = false;
   errorMessage = '';
   id?: number;
 

@@ -23,7 +23,7 @@
 </div>
 
 <h2>Beställ:</h2>
-<div class="d-flex col-4 m-3">
+<div class="d-flex products">
     <app-product-customer *ngFor="let product of products" [product]="product" (AddToCartEmitter)="addToCart($event)">
     </app-product-customer>
 </div>

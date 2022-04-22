@@ -1,0 +1,66 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <h3>Ändra order</h3>
+        <div class="alert alert-warning" *ngIf="errorMessage">
+            Uppdatering misslyckades!<br />{{ errorMessage }}
+        </div>
+        <form name="form" (ngSubmit)="confirmOrder()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="customerName">Kund:</label>
+                <input type="text" class="form-control" name="customerName" [(ngModel)]="form.customerName" required
+                    #firstName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="address">Adress:</label>
+                <input type="text" class="form-control" name="address" [(ngModel)]="form.address" required
+                    #lastName="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="orderStatus">Orderstatus:</label>
+                <input type="text" class="form-control" name="orderStatus" [(ngModel)]="form.orderStatus" required
+                    #lastName="ngModel" />
+            </div>
+
+            <h2>Beställ:</h2>
+            <div class="d-flex m-3 products">
+                    <app-product-customer *ngFor="let product of products" [product]="product"
+                        (AddToCartEmitter)="addToCart($event)">
+                    </app-product-customer>
+            </div>
+
+            <div *ngIf="cart">
+                <hr>
+                I din varukorg:
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Art. no:</th>
+                            <th>Produkt:</th>
+                            <th>Summa:</th>
+                            <th>Antal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cart">
+                            <td>{{item.productNumber}}</td>
+                            <td>{{item.productName}}</td>
+                            <td>{{item.productPrice * item.quantity}} kr</td>
+                            <td>{{item.quantity}}</td>
+                            <td><button class="btn-success" type="button"
+                                    (click)="addQuantity(item.productNumber)">+</button></td>
+                            <td><button class="btn-danger" type="button"
+                                    (click)="removeQuantity(item.productNumber)">-</button></td>
+                    </tbody>
+                </table>
+                <p>Summa: {{total()}} kr </p>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Ändra produkt</button>
+            </div>
+            <div class="form-group">
+                <button [routerLink]="['/main']" class="btn btn-secondary btn-block">Gå tillbaka</button>
+            </div>
+        </form>
+    </div>
+</div>
