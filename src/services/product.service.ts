@@ -1,8 +1,6 @@
-import { NumberFormatStyle } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NewProduct } from 'src/app/models/new-product';
 import { ProductInfo } from 'src/app/models/product-info';
 
 const API_KEY = '?key=ThisIsAnAPIKey'
@@ -34,7 +32,8 @@ export class ProductService {
   }
 
  updateProduct(id:number,productName:string, productNumber:number, productDescription: string, productPrice: number, category:string) : Observable<any>{
-    return this.http.put(API_Auth + id + API_KEY ,{
+  console.log('update Product')  
+  return this.http.put(API_Auth + id + API_KEY ,{
       productName,
       productNumber,
       productDescription,

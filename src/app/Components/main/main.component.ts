@@ -4,9 +4,7 @@ import { TokenStorageService } from 'src/services/token-storage.service';
 import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/services/product.service';
-import { ProductInfo } from 'src/app/models/product-info';
 import { OrderService } from 'src/services/order.service';
-import { OrderInfo } from 'src/app/models/order-info';
 
 
 @Component({
