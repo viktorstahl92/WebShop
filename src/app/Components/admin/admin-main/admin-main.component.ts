@@ -53,7 +53,7 @@ export class AdminMainComponent implements OnInit {
   }
 
   deleteUser(id:number){
-    console.log(id);
+    if (!confirm("Är du säker på att du vill ta bort användaren?")) return
     this.userService.deleteUser(id).subscribe((response: any) =>{
       this.userService.getAllUsers().subscribe((response: UserInfo[]) =>{
         this.users = response;
@@ -62,6 +62,7 @@ export class AdminMainComponent implements OnInit {
   }
 
   deleteOrder(id:number){
+    if (!confirm("Är du säker på att du vill ta bort ordern?")) return
     this.orderService.deleteOrder(id).subscribe((response: any) =>{
       this.orderService.getAllOrders().subscribe((response: OrderInfo[]) =>{
         this.orders = response;
@@ -71,7 +72,7 @@ export class AdminMainComponent implements OnInit {
   
 
   deleteProduct(id:number){
-    console.log(id);
+    if (!confirm("Är du säker på att du vill ta bort produkten?")) return
     this.productService.deleteProduct(id).subscribe((response: any) =>{
       this.productService.getAllProducts().subscribe((response: ProductInfo[]) =>{
         this.products = response;
