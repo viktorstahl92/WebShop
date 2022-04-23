@@ -34,8 +34,10 @@
             </div>
             <div class="form-group">
                 <label for="role">Roll:</label>
-                <input type="text" class="form-control" name="role" [(ngModel)]="form.role" required
-                #role="ngModel" />
+                <select type="text" class="form-control" name="role" [(ngModel)]="form.role" required #role="ngModel">
+                    <option value="Customer">Customer</option>
+                    <option value="Admin">Admin</option>
+                </select>
             </div>
 
             <div class="form-group">
