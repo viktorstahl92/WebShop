@@ -1,5 +1,6 @@
 <div *ngIf="order">
     <h2>Orderbekräftelse</h2>
+    <h6>Ordernummer: {{order.orderId}}</h6>
     <div>
         <p>Beställare: {{order.customerName}}<br>
             Adress: {{order.address}}</p>

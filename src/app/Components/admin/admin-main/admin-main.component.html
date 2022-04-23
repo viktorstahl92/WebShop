@@ -29,7 +29,7 @@
             <tr *ngFor="let item of products">
                 <td>{{item.productNumber}}</td>
                 <td>{{item.productName}}</td>
-                <td>{{item.productPrice}}</td>
+                <td>{{item.productPrice| number: '1.0-2'}} kr</td>
                 <td>{{item.category}}</td>
                 <td><button class="btn-info" [routerLink]="['/admin/updateproduct/' + item.productID]">Redigera</button></td>
                 <td><button class="btn-danger" (click)="deleteProduct(item.productID)">Ta bort</button></td>
@@ -55,7 +55,7 @@
                 <td>{{item.orderId}}</td>
                 <td>{{item.customerName}}</td>
                 <td>{{item.orderStatus}}</td>
-                <td>{{item.totalPrice}}</td>
+                <td>{{item.totalPrice| number: '1.2-2'}} kr</td>
                 <td><button class="btn-primary" [routerLink]="['/order/' + item.orderId]">Visa</button>
                 <td><button class="btn-info" [routerLink]="['/admin/updateorder/' + item.orderId]">Redigera</button></td>
                 <td><button class="btn-danger" (click)="deleteOrder(item.orderId)">Ta bort</button></td>
